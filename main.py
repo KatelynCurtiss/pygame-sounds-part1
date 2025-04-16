@@ -12,6 +12,8 @@ WINDOW_HEIGHT = 600
 TITLE = ('Pygame Sounds')
 FPS = 60
 
+
+
 # Colors :) 
 PASTELPINK = (255, 182, 193)
 PEACHPINK = (255, 178, 149)
@@ -24,11 +26,15 @@ LAVENDERPURPLE = (150, 123, 182)
 ROSE = (255, 0, 127)
 HONEYDEW = (240, 255, 240)
 
-pygame.init_game()
-screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-pygame.display.set_caption(TITLE)
+def init_game():
+    pygame.init()
+    screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+    pygame.display.set_caption(TITLE)
 
 background = pygame.image.load('HTAJLU.jpg')
+
+pygame.mixer.init()
+
 
 def handle_events ():
     for event in pygame.event.get():
@@ -44,11 +50,12 @@ def main():
     running = True
     while running:
         running = handle_events()
-        screen.fill(PEACHPINK) 
         pygame.display.flip()
+        
         
         clock.tick(FPS) 
 
+    
         
 
     pygame.quit()
