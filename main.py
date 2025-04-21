@@ -26,6 +26,18 @@ LAVENDERPURPLE = (150, 123, 182)
 ROSE = (255, 0, 127)
 HONEYDEW = (240, 255, 240)
 
+TEXT_FONT = "FreeMono.ttf"
+
+def draw_text(screen,text, x,y,font_size, ROSE, font_name=None, bold=False, italic=False):
+    if font_name:
+        font = pygame.font.Font(font_name, font_size)
+    else:
+        font = pygame.font.Font(None, font_size)
+    font.set_bold(bold)
+    font.set_italic(italic)
+    text_surface = font.render(text, True, LAVENDERPURPLE)
+    screen.blit('HtAJLU.jpg', (90, y))
+
 def init_game():
     pygame.init()
     screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
@@ -46,6 +58,7 @@ def handle_events ():
     return True
 def main():
     screen = init_game()
+    instructions = ["Press 'a' to play Sound Effect #1", "Press 's' to play Sound Effect #2"]
     clock = pygame.time.Clock() 
     running = True
     while running:
